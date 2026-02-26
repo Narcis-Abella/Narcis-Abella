@@ -11,7 +11,7 @@ Six months ago I had zero experience in autonomous systems. Today I’m Technica
 🔬 **[visual-lidar-slam-validation](https://github.com/Narcis-Abella/visual-lidar-slam-validation)** *(in progress)*  
 Metrological characterization of IMU, LiDAR and RGB-D sensors using a 6-DOF industrial manipulator as kinematic ground truth. Extracting Allan Variance coefficients to build physics-grounded Gazebo sensor models. Designed to close the sim-to-real gap quantitatively — not qualitatively.
 
-🤖 **[hospital_sim](https://github.com/Narcis-Abella/hospital_sim)**  
+🤖 **[hospital-agv-sim](https://github.com/Narcis-Abella/hospital-agv-sim)**  
 ROS 2 / Ignition Gazebo simulation for an AgileX Tracer 2 AGV. Core contribution: replacing Gazebo’s default noise primitives with per-sensor C++ nodes implementing Gauss-Markov bias, proportional range noise, and wheel slip models derived from real hardware datasheets.
 
 🛠️ **[SocialTech_C_Setup](https://github.com/Narcis-Abella/SocialTech_C_Setup)**  
