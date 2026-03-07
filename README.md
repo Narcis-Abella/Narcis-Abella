@@ -9,7 +9,7 @@ Six months ago I had zero experience in autonomous systems. Today I'm Technical 
 ## What I'm working on
 
 🔬 **[slam-sensor-metrological-validation](https://github.com/Narcis-Abella/slam-sensor-metrological-validation)** *(in progress)*
-Phase I: Metrological validation of IMU, LiDAR and RGB-D sensor models for SLAM. Uses an ABB YuMi (±0.02 mm repeatability) as kinematic ground truth to extract Allan Variance coefficients and build state-dependent noise models (M4). Compares real hardware, standard simulation and metrological simulation across multiple SLAM backends — designed to quantify the sim-to-real gap, not just describe it.
+Metrological validation of IMU, LiDAR and RGB-D sensor models for SLAM. Uses an ABB YuMi (±0.02 mm repeatability) as kinematic ground truth to extract Allan Variance coefficients and build state-dependent noise models (M4). Compares real hardware, standard simulation and metrological simulation across multiple SLAM backends — designed to quantify the sim-to-real gap, not just describe it.
 
 🤖 **[hospital-agv-sim](https://github.com/Narcis-Abella/hospital-agv-sim)**
 ROS 2 / Ignition Gazebo simulation for an AgileX Tracer 2 AGV. Core contribution: replacing Gazebo's default noise primitives with per-sensor C++ nodes implementing Gauss-Markov bias, proportional range noise, and wheel slip models derived from real hardware datasheets.
