@@ -43,8 +43,11 @@ Analysis       Allan Variance · evo (ATE/RPE) · Statistical modeling
 ## Background
 
 🏆 1st Prize — Argó Research Award (UAB, Technology Category), 2022
+
 🏆 IQS-URL Research Distinction (Engineering & Technology), 2022
+
 📐 CSWA Certified (SolidWorks)
+
 🇬🇧 Cambridge English C1
 
 -----
