@@ -8,14 +8,17 @@ Six months ago I had zero experience in autonomous systems. Today I'm Technical 
 
 ## What I'm working on
 
-🔬 **[slam-sensor-metrological-validation](https://github.com/Narcis-Abella/slam-sensor-metrological-validation)** *(in progress)*
-Metrological validation of IMU, LiDAR and RGB-D sensor models for SLAM. Uses an ABB YuMi (±0.02 mm repeatability) as kinematic ground truth to extract Allan Variance coefficients and build state-dependent noise models (M4). Compares real hardware, standard simulation and metrological simulation across multiple SLAM backends — designed to quantify the sim-to-real gap, not just describe it.
+🔬 [slam-sensor-metrological-validation](https://github.com/Narcis-Abella/slam-sensor-metrological-validation) *(in progress)*  
+Metrological validation of IMU, LiDAR and RGB-D sensor models for SLAM. Uses an ABB YuMi (±0.02 mm repeatability) as kinematic ground truth to extract Allan Variance coefficients and build a kinematic-state-dependent noise model (M4). Compares real hardware, standard simulation and metrological simulation across multiple SLAM backends to quantify how much of the sim-to-real gap comes from the sensor models themselves.
 
-🤖 **[hospital-agv-sim](https://github.com/Narcis-Abella/hospital-agv-sim)**
-ROS 2 / Ignition Gazebo simulation for an AgileX Tracer 2 AGV. Core contribution: replacing Gazebo's default noise primitives with per-sensor C++ nodes implementing Gauss-Markov bias, proportional range noise, and wheel slip models derived from real hardware datasheets.
+📊 [livox3d-slam-benchmark](https://github.com/Narcis-Abella/livox3d-slam-benchmark) *(in progress)*  
+Reproducible 3D LiDAR SLAM benchmark on Livox Mid-360 for FAST-LIO2, GLIM and RTAB-Map. Shared trajectories, common metrics (ATE/RPE, map quality) and a unified experimental pipeline to make backend-agnostic comparisons on the same data.
 
-🛠️ **[SocialTech_C_Setup](https://github.com/Narcis-Abella/SocialTech_C_Setup)**
-Production-grade Infrastructure-as-Code pipeline for provisioning ROS 2 on Nvidia Jetson Orin. Solves JetPack 6 / RealSense kernel incompatibilities via automated L4T source compilation and custom fallback logic.
+🤖 [hospital-agv-sim](https://github.com/Narcis-Abella/hospital-agv-sim)  
+ROS 2 / Ignition Gazebo simulation for an AgileX Tracer 2 AGV. Core contribution: replacing Gazebo's default noise primitives with per-sensor C++ nodes implementing Gauss-Markov bias, proportional range noise and wheel slip models derived from real hardware datasheets.
+
+🛠️ [SocialTech_C_Setup](https://github.com/Narcis-Abella/SocialTech_C_Setup)  
+Infrastructure-as-Code pipeline for provisioning ROS 2 on Nvidia Jetson Orin. Solves JetPack 6 / RealSense kernel incompatibilities via automated L4T source compilation and custom fallback logic.
 
 -----
 
