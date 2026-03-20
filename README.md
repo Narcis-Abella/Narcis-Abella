@@ -2,7 +2,7 @@
 
 Most robotics teams don't have a simulation problem. They have a *fidelity* problem.
 
-You know your SLAM stack works in Gazebo. You know what the real sensor should look like. But between a clean simulated point cloud and actual deployment on a hospital floor, there's a gap that kills navigation stacks — and it almost always comes from sensor models that were never grounded in real hardware behaviour.
+You know your SLAM stack works in Gazebo. You know what the real sensor should look like. But between a clean simulated point cloud and actual deployment on a hospital floor, there's a gap that kills navigation stacks - and it almost always comes from sensor models that were never grounded in real hardware behaviour.
 
 That's the problem I am currently focused on.
 
