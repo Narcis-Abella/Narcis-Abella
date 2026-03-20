@@ -12,7 +12,7 @@ That's the problem I am currently focused on.
 
 It started as a university challenge: build an autonomous wheelchair for people with mobility impairments. That problem pulled me deep enough into autonomous systems that the scope kept expanding — from wheelchair to AGV, from AGV to the question of why simulation-to-real transfer keeps failing, and from that question to building the tooling to actually measure and close that gap.
 
-The result is an open-source simulation framework for mobile robot SLAM validation, built on ROS 2 and Ignition Gazebo. The goal is not to replace Isaac Sim — tools like that exist and are excellent for teams that have access to them. The gap this fills is different: there's no standardised, open-source framework for grounding Gazebo sensor models in real hardware data, validating them metrologically, and using them to benchmark SLAM before physical deployment. That's what this is.
+The result is an open-source simulation framework for mobile robot SLAM validation, built on ROS 2 and Ignition Gazebo. The goal is not to replace Isaac Sim — tools like that exist and are excellent for teams that have access to them. The gap this fills is different: Gazebo ships with configurable noise models, but their parameters are placeholders — there's no standardised open-source pipeline for deriving those parameters from real hardware characterisation, validating them against a metrological ground truth, and using the result to benchmark SLAM transfer before physical deployment. Most teams either tune by intuition or skip the sensor models entirely.
 
 ---
 
