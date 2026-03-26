@@ -15,33 +15,13 @@ It started as a university challenge (November 2025): build an autonomous wheelc
 The result is an open-source simulation framework for mobile robot SLAM validation, built on ROS 2 and Ignition Gazebo. The goal is not to replicate what tools like Isaac Sim do. The gap this fills is different: Gazebo ships with configurable noise models, but their parameters are placeholders — and there is no standardised pipeline for deriving those parameters from real hardware characterisation, validating them against a metrological ground truth, and using the result to benchmark SLAM transfer before deployment. Most teams either tune by intuition or skip the sensor models entirely.
 
 ---
-## Why sensor metrology — and why better simulation models are not enough
+## Why sensor metrology — and why better models are not enough
 
-The standard objection to simulation-based SLAM validation goes like this: *modern simulators are already highly capable — Isaac Sim, Gazebo Fortress, MuJoCo — and there are well-established techniques like domain randomization to cover the gaps. Why does sensor metrology matter on top of that?*
+The standard response to the sim-to-real gap is domain randomisation: randomise physics parameters broadly enough and hope the real world falls inside the training distribution. It's a legitimate technique, but it has a well-documented failure mode — the robot learns to exploit the simulator's inconsistencies rather than solve the actual task. Muratore et al. formalised this as *Simulation Optimization Bias*; the field's most comprehensive recent survey on the reality gap (Aljalbout et al., *Annual Review of Control, Robotics, and Autonomous Systems*, 2026) identifies unvalidated sensor models as one of its core unresolved sources.
 
-It's the right question. Here's the honest answer.
+Higher-fidelity models don't fix this. A more detailed sensor model that has never been validated against real hardware gives the policy a richer set of simulation-specific artefacts to overfit to. The navigator doesn't learn robustness — it learns to assume the artefacts.
 
----
-
-**The problem isn't that simulators are too simple. It's that their errors are uncharacterised.**
-
-Domain randomization — randomising friction, mass, noise levels, visual textures — is the field's dominant response to the reality gap. It works by hoping that if you randomise broadly enough, the real world falls somewhere inside the training distribution. The approach has produced genuine results in locomotion and manipulation.
-
-But it has a well-documented failure mode: *the robot learns to exploit the simulator, not to navigate reality.* Muratore et al. coined this the *Simulation Optimization Bias* — running policy search on a slightly faulty simulator tends to produce policies that maximise reward by exploiting the model's inconsistencies, not by solving the underlying task. Baker et al. observed this directly: agents trained in simulation learned to abuse the physics engine to gain an advantage that doesn't exist in the real world. The community's own review literature (Muratore et al., 2022, *Frontiers in Robotics and AI*) states it plainly: the learner is free to overfit to simulator artefacts, and the most competitive solutions in simulation are often the ones that rely most heavily on poorly-modelled dynamics.
-
-Higher-fidelity models make this worse, not better. A more detailed sensor model that is still unvalidated gives the policy a richer set of simulation-specific artefacts to exploit. The downstream application — SLAM, odometry, loop closure — is sensitive to the geometry and statistical structure of the sensor output, not just its magnitude. A simulated LiDAR that produces perfect ray-cast returns with additive noise has the wrong spatial structure for a solid-state sensor whose non-repetitive scan pattern creates time-varying coverage gaps. A simulated IMU with fixed σ doesn't capture the bias instability and rate random walk that drive VIO divergence over long integration windows. The navigator trained on these models doesn't learn to be robust; it learns to assume the artefacts.
-
-The field's most thorough recent survey on this problem — Aljalbout et al., *Annual Review of Control, Robotics, and Autonomous Systems*, 2026 — identifies sensor modeling as one of the core unresolved sources of the reality gap, alongside dynamics parameterisation and collision sensing. They note that simulation-based approaches commonly simplify or omit the physical details that matter most in real deployment: manufacturing tolerances, thermal effects, material-dependent return characteristics, actuation delays. The survey covers the full landscape of mitigation strategies — domain randomisation, real-to-sim transfer, co-training — and reaches a sobering conclusion: none of these close the gap if the underlying sensor model is structurally wrong.
-
-The automotive and ADS community has reached the same conclusion from a different direction. Ngo et al. (ITSC 2021) showed that sensor model fidelity must be validated both explicitly (does the simulated data match real data statistically?) and implicitly (does a downstream perception model trained on simulation perform the same way on real data?). Without both, a high-fidelity simulation is just a confident-sounding source of misleading training signal. Wu et al. (2025) extended this to scenario validation, demonstrating that without formal equivalence bounds, synthetic test scenarios cannot be said to represent real-world behaviour — even when generated by sophisticated learned models.
-
-**What metrology adds is the ability to know what you don't know.**
-
-The goal of characterising sensors against sub-millimetre ground truth — Allan Variance decomposition for IMUs, range-dependent and material-dependent error budgets for LiDARs, thermal drift profiles for RGB-D cameras — is not to build a perfect simulator. It's to replace uncharacterised errors with bounded, interpretable ones.
-
-A simulator built from metrological characterisation lets you make a specific claim: *under this operating envelope, the simulated and real sensor are statistically equivalent to within this tolerance.* That is a fundamentally different claim from "we added noise and randomised the parameters." It's the difference between a calibrated instrument and a well-intentioned guess — and in a hospital environment, navigating around patients, that distinction has consequences.
-
-This is what `slam-sensor-metrological-validation` is building toward.
+Sensor metrology changes the question. Instead of *"did we add enough noise?"*, the question becomes *"are the simulated and real sensor statistically equivalent under a defined operating envelope?"* — a claim that can actually be tested, bounded, and reported. That's what `slam-sensor-metrological-validation` is building toward.
 ---
 
 ## Repositories
