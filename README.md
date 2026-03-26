@@ -22,6 +22,7 @@ The standard response to the sim-to-real gap is domain randomisation: randomise 
 Higher-fidelity models don't fix this. A more detailed sensor model that has never been validated against real hardware gives the policy a richer set of simulation-specific artefacts to overfit to. The navigator doesn't learn robustness — it learns to assume the artefacts.
 
 Sensor metrology changes the question. Instead of *"did we add enough noise?"*, the question becomes *"are the simulated and real sensor statistically equivalent under a defined operating envelope?"* — a claim that can actually be tested, bounded, and reported. That's what `slam-sensor-metrological-validation` is building toward.
+
 ---
 
 ## Repositories
