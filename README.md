@@ -1,7 +1,7 @@
 # Hi, I'm Narcís 👋
 
-Industrial Engineering student at IQS Barcelona.  
-I work on **robotics simulation fidelity**, with a specific focus on **sensor-noise metrology** for sim-to-real validation.
+Industrial Engineering student at IQS Barcelona and Technical Lead of my university robotics team.  
+I'm currently working on robotics simulation fidelity, with a specific focus on sensor-noise metrology for sim-to-real validation.
 
 Most robotics stacks don't fail because of planners. They fail earlier: the simulated sensor residuals do not match real hardware behavior.
 
@@ -18,7 +18,7 @@ Most robotics stacks don't fail because of planners. They fail earlier: the simu
 ## Featured repositories
 
 ### 🔬 [sensor-noise-metrology](https://github.com/Narcis-Abella/sensor-noise-metrology) *(active research)*  
-Metrological validation framework for sensor residuals, designed to close the **sensor-specific sim-to-real gap**.  
+Metrological validation framework for sensor residuals, designed to close the sensor-specific sim-to-real gap.  
 Core approach: TOST-based equivalence testing, residual-level analysis, and physically grounded noise modeling.
 
 ### 🏥 [hospital-agv-sim](https://github.com/Narcis-Abella/hospital-agv-sim) *(active)*  
@@ -46,6 +46,7 @@ Reproducible 3D SLAM benchmark for Livox Mid-360 (ATE/RPE pipeline, backend comp
 - I chase failure modes, not surface fixes.
 - I document while building. READMEs are part of the engineering work.
 - I optimize for reproducibility first, then speed.
+- I choose depth over shortcuts, and I call out problems early when something breaks.
 
 ---
 
